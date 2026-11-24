@@ -1,37 +1,90 @@
 # 3. Cómo está evolucionando: IA, aranceles y demanda
 
-Convención: **[V]** verificado en fuente. **[I]** inferencia. Mucho de este capítulo es de 2026 y viene de resúmenes de búsqueda, no de lectura directa de las páginas.
+Convención: **[V]** verificado en fuente. **[I]** inferencia. Las secciones 3.1 y 3.2 vienen de lectura directa de las fuentes primarias. El resto es de 2026 y viene de resúmenes de búsqueda.
 
 ## 3.1 Tus dos referencias: Diode y el artículo de Davide Asnaghi
 
-No pude abrir ninguna de las dos páginas (la red de esta sesión las bloquea). Lo que sigue viene de fuentes secundarias.
+Leídas de fuente primaria: el [sitio de Diode](https://www.diode.computer/) y sus cuatro publicaciones. El artículo de X no se pudo abrir en esa plataforma, pero Diode publicó el mismo título en su blog el 9 de noviembre de 2026, firmado por Asnaghi, Lenny Khazan y Zabie Elmgren: ["AI Hardware Design Gets Faster, Manufacturing Matters More"](https://blog.diode.computer/ai-hardware-design-manufacturing). Asumo que es el mismo texto.
 
-**Diode Computers**
-- **Qué vende:** "tarjetas como servicio". El cliente describe lo que necesita y recibe tarjetas funcionando, no archivos [V] ([a16z](https://a16z.com/announcement/investing-in-diode/)).
-- **Cómo lo hace:** el diseño se escribe como código, en un lenguaje propio y abierto llamado Zener. Agentes de IA generan y revisan el diseño contra las hojas de datos de los componentes. Ingenieros humanos hacen la revisión final. Fabrican en su propia planta en Brooklyn [V] ([GitHub](https://github.com/diodeinc/pcb), [a16z Policy](https://a16zpolicy.substack.com/p/turning-americas-ai-progress-into)).
-- **Precio:** desde ~$10,000 por diseño más fabricación en el nivel empresarial [V, vía resumen de su sitio]. Un ejemplo de cotización automática: 5 tarjetas por $5,498 en 9 días [V] ([GitHub PR](https://github.com/diodeinc/pcb/pull/1543)). Es un solo dato, no una lista de precios.
-- **Ritmo:** "un diseño de tarjeta cada 4 días" [V] ([blog de Diode](https://blog.diode.computer/series-a-announcement)).
-- **Clientes:** Physical Intelligence (robótica), Saronic (defensa naval) [V].
-- **Tamaño:** $11.4M de Serie A liderada por a16z en julio de 2025, más de $14.5M en total, entre 8 y 11 empleados [V] ([PitchBook](https://pitchbook.com/profiles/company/620727-22)). Ingresos no públicos.
-- **Historia:** empezaron con una herramienta de validación de diseño y pivotaron a controlar todo el flujo, del diseño a la fábrica [V].
+### Qué vende Diode
 
-**El artículo de X**
-- Título: **"AI Hardware Design Gets Faster, Manufacturing Matters More"**, publicado cerca del 9 de noviembre de 2026 [V, solo extractos].
-- Tesis, según los extractos:
-  1. Los modelos todavía fallan en radiofrecuencia, entrega de potencia y ruteo de alta velocidad, pero cada versión necesita menos corrección.
-  2. Cuando un modelo puede diseñar la tarjeta y escribir el firmware a pedido, **la manufactura se vuelve el cuello de botella**.
-  3. Diseñar más rápido solo crea valor si la fábrica sigue el ritmo.
-  4. Diseñar más fácil va a atraer a más equipos a hacer hardware a la medida.
-- No tengo el texto completo. Si lo pegas, lo incorporo.
+"Tarjetas a la medida, diseñadas y fabricadas con IA". Tres pasos en un solo lugar [V]:
+
+1. **Diseño:** los requisitos se convierten en esquemático y layout escritos como código, que el agente de IA y los ingenieros pueden revisar.
+2. **Fabricación:** cada diseño se revisa contra las reglas de la fábrica antes de producir.
+3. **Ensamble:** compran todos los componentes y ensamblan en su planta de Brooklyn, de prototipos a producción.
+
+Dos formas de comprar [V]:
+
+| | Autoservicio | Empresarial |
+|---|---|---|
+| Quién diseña | El cliente, con el agente de IA de Diode | Los ingenieros de Diode |
+| Qué trae el cliente | Una descripción, un diagrama de bloques o un proyecto KiCad | Sus requisitos |
+| Precio | Fabricación y ensamble, cotizados al instante | Desde $10,000 por diseño, más fabricación |
+| Incluye | Revisión de manufacturabilidad antes de fabricar | Slack dedicado, soporte prioritario y bring-up |
+
+**Lo que muestran de su propio trabajo [V]:**
+- Dos tarjetas propias de 10 capas: un radio definido por software (70 MHz a 6 GHz) y una *carrier board* para NVIDIA Jetson Orin, pensada para robótica.
+- Diseños de referencia abiertos: controlador de motor BLDC trifásico, sonda de depuración, *carrier* para Raspberry Pi CM5.
+
+**Cifras que ellos reportan [V]** ([anuncio de Serie A](https://blog.diode.computer/series-a-announcement)):
+- "Un diseño de tarjeta cada 4 días". Un solo ingeniero eléctrico entregó más de 100 diseños únicos en un año.
+- Sus clientes bajaron las revisiones por tarjeta de cinco a una.
+- Clientes: Physical Intelligence, Saronic, y varios proveedores Tier 1.
+- Entregan en los formatos de Altium y Cadence si el cliente los usa.
+- Cada tarjeta que pasa por Diode alimenta sus datos: rendimiento real, plazos de componentes, perfiles de soldadura.
+
+**Tamaño:** $11.4M de Serie A liderada por a16z en julio de 2025, entre 8 y 11 empleados según bases de datos [V] ([PitchBook](https://pitchbook.com/profiles/company/620727-22)). Ingresos no públicos. Están contratando ingenieros de nivel *staff*.
+
+### Cómo trabaja por dentro
+
+De ["Teaching Claude To Design Circuit Boards That Ship"](https://blog.diode.computer/anthropic-partnership) [V]:
+
+- **Zener:** lenguaje abierto para describir tarjetas como código. Se puede versionar, revisar y probar como software, y un modelo lo lee y escribe con facilidad porque se parece a Python.
+- **Biblioteca pública:** un flujo automático produjo cerca de 250 diseños de referencia en dos semanas (sensores, microcontroladores, etapas de potencia, cadenas analógicas).
+- **El "Registry", su activo privado:** módulos ya probados en proyectos reales, cada uno con su fragmento de layout validado y datos de manufactura. Incluye plataformas de cómputo (Qualcomm, Jetson) y frentes de radiofrecuencia.
+- **Efecto:** arrancar un proyecto pasa de empezar en blanco a componer bloques probados. Reportan pasar "de meses a semanas".
+- **Simulación como verdad:** cada módulo corre simulaciones automáticas. Si el circuito no cumple, el modelo ve por qué e itera.
+- **Los ingenieros firman cada diseño.**
+
+De ["A Better Way to Review Hardware"](https://blog.diode.computer/hardware-review) [V]:
+
+- Su revisor con IA encontró 22 errores en el reto de hardware de comma.ai y ganó el premio.
+- Reconocen el límite: no reemplaza validación en laboratorio, pruebas electromagnéticas, térmicas, certificación ni la firma final. "El hardware real todavía hay que medirlo y validarlo".
+
+### La tesis del artículo
+
+En orden [V]:
+
+1. **Diseñar una tarjeta es, en el fondo, producir un archivo que cumple reglas.** Con el entorno y los datos correctos, los modelos lo hacen bien. Diode lleva dos años ayudando a entrenarlos.
+2. **Todavía fallan** en radiofrecuencia, entrega de potencia y ruteo de alta velocidad. Cada versión falla menos.
+3. **Pronto alguien sin formación en electrónica** va a describir lo que quiere y obtener un diseño que funciona, "al menos en el papel".
+4. **El hardware a la medida da mejor producto:** más pequeño, más barato en volumen, con menos piezas que fallan. No se hacía porque era lento y caro, y los buenos ingenieros eléctricos son escasos.
+5. **Si diseñar se vuelve fácil, más equipos harán hardware a la medida.** Lo difícil pasa a ser fabricarlo.
+6. **El mundo real es desordenado.** Un componente se agota entre la revisión y la fabricación. Un archivo es ambiguo y el pedido queda detenido mientras la fábrica adivina. Eso cuesta semanas o deja tarjetas que no funcionan.
+7. **"El puente entre el archivo de diseño y la tarjeta en tu mano es donde está el valor duradero."** Se necesitan datos en vivo: qué componentes se consiguen, qué puede fabricar una planta en el lugar correcto, cuánto cuesta a tu plazo y volumen. Eso solo se controla cuando fabricas y entregas.
+8. **La manufactura queda como el único cuello de botella.** Robótica y centros de datos aceleran el ritmo.
+9. **Cambia lo que se le pide a las fábricas.** Si una revisión cuesta lo que toma escribir un prompt, los equipos harán muchas más versiones en lotes más pequeños. Ese trabajo de alta mezcla siempre fue lento y caro, y por eso se fue al exterior.
+10. **Para que EE.UU. compita**, la tecnología debe permitir tandas pequeñas de tarjetas nuevas, baratas y bien a la primera, con capacidad de escalar.
 
 ## 3.2 Qué demostró la IA en noviembre de 2026
 
-Anthropic publicó el 9 de noviembre de 2026 una investigación hecha con Diode [V] ([Anthropic](https://www.anthropic.com/research/claude-electronics-design), [Adafruit](https://blog.adafruit.com/2026/11/09/claude-claims-it-can-now-design-electronic-prototypes-from-start-to-finish/)):
+Anthropic publicó el 9 de noviembre de 2026 ["Claude can design electronic prototypes from start to finish"](https://www.anthropic.com/research/claude-electronics-design), hecha con Diode. Leída de fuente primaria [V]. La publicación declara que hay relación comercial entre las dos empresas.
 
-- **Qué hizo:** un modelo de Claude diseñó tres dispositivos completos (un altavoz manos libres, un asistente de voz y una mascota virtual portátil). Para cada uno produjo especificaciones, esquemático, layout de 4 capas, carcasa, firmware y lista de materiales.
-- **Resultado:** las tres tarjetas se fabricaron sin rondas de corrección.
-- **Medición:** en la prueba interna de layout de Diode ("PCB Gym") el modelo nuevo sacó 69% contra 25% del anterior. La prueba es interna y hay relación comercial entre las partes, así que no es verificable de forma independiente.
-- **Qué siguieron haciendo humanos:** ensamblar y probar las tarjetas a mano. No hubo validación eléctrica, ajuste de antena, pruebas térmicas ni certificación. No eran diseños para producción masiva [V, cobertura secundaria de la misma publicación].
+- **Qué hizo:** un modelo de Claude diseñó tres dispositivos a partir de una instrucción corta: un altavoz manos libres USB, un asistente de voz para el hogar y una mascota virtual portátil a batería. Para cada uno escribió especificaciones, esquemático, layout de 4 capas, carcasa imprimible en 3D, firmware y lista de materiales.
+- **Resultado:** Diode fabricó las tres tarjetas directo de los archivos, sin correcciones a los circuitos. El altavoz sigue funcionando tras semanas de uso.
+- **Cómo trabajó:**
+  - Ruteó primero las señales críticas (alta velocidad, alta corriente, sensibles al ruido).
+  - Leyó hojas de datos para decidir. Predijo correctamente un comportamiento del cargador sin batería.
+  - Cuando el ruteador disponible no bastó, escribió el suyo en cerca de media hora.
+  - Borró y rehízo conexiones decenas de veces al ver que el layout se enredaba. Los modelos anteriores casi nunca corregían su propio trabajo y dejaban tarjetas "95% completas pero inutilizables".
+  - Corrió las revisiones de manufacturabilidad y de disponibilidad de componentes, y separó errores reales de falsos.
+- **Mediciones:**
+  - En la prueba interna de layout de Diode ("PCB Gym"): 69% contra 25% de la versión anterior. Es interna y no verificable de forma independiente.
+  - En BenchCAD 2.1, prueba pública de reconstrucción de piezas y tarjetas: 83.5%, casi el doble de la versión previa.
+- **Qué hicieron los humanos:** ensamblar, cargar el firmware y probar. El modelo no estaba conectado a instrumentos ni a máquinas de fabricación. Las instrucciones fueron mínimas ("limpia el esquemático", "continúa").
+- **Límites declarados:** son prototipos. No pasaron validación eléctrica, ajuste de antena, pruebas térmicas ni certificación. No están diseñados para producción masiva.
+- **Lo que sigue según ellos:** tarjetas más densas y rápidas, verificación por simulación, y aprender de mediciones sobre dispositivos terminados. Mencionan que OpenAI publicó un trabajo similar.
 
 Otros jugadores van en la misma dirección:
 - **Quilter** (layout con IA): $40M levantados. Reporta un computador Linux de 843 componentes que arrancó a la primera, con 38.5 horas humanas contra 428 cotizadas manualmente. Dato propio de la empresa [V] ([Quilter](https://www.quilter.ai/project-speedrun)).
@@ -55,8 +108,10 @@ Otros jugadores van en la misma dirección:
 **Implicación directa para una tesis desde Colombia:**
 
 1. **El arbitraje salarial en horas de diseño vale menos cada año.** Si un modelo hace el layout, vender "ingenieros baratos por hora" es apostar a lo que se está abaratando.
-2. **La IA también nivela la cancha.** Un equipo pequeño con estas herramientas produce lo que antes requería un equipo grande. Las herramientas de Diode son abiertas. La barrera de entrada al diseño baja para todos, incluido un equipo en Medellín o Bogotá.
-3. **El valor se mueve a lo físico:** fabricar rápido, probar con instrumentos, depurar, certificar, responder por el resultado. Es justo lo que el modelo no pudo hacer en la demostración. Ese trabajo de laboratorio es mano de obra calificada, y ahí el costo colombiano sí es ventaja, siempre que el ciclo físico (componentes que entran, tarjetas que salen) sea rápido.
+2. **La IA también nivela la cancha.** Un equipo pequeño con estas herramientas produce lo que antes requería un equipo grande. Diode reporta más de 100 diseños al año por ingeniero. Su lenguaje y su biblioteca pública son abiertos. La barrera de entrada al diseño baja para todos, incluido un equipo en Medellín o Bogotá.
+3. **Lo abierto no es el foso.** El activo de Diode es privado: su biblioteca de módulos ya validados en proyectos reales y los datos que le devuelve su propia fábrica. Quien entre tiene que construir su equivalente, proyecto por proyecto.
+4. **El extremo simple ya tiene autoservicio.** Una startup de EE.UU. que necesita una tarjeta sencilla puede diseñarla con el agente de Diode y recibirla cotizada al instante. Los controladores de motor y las *carrier boards* para Jetson, que parecían nichos accesibles, ya existen como diseños de referencia abiertos. Competir ahí por precio no tiene sentido.
+5. **El valor se mueve a lo físico:** fabricar rápido, probar con instrumentos, depurar, certificar, responder por el resultado. Es justo lo que el modelo no pudo hacer en la demostración. Ese trabajo de laboratorio es mano de obra calificada, y ahí el costo colombiano sí es ventaja, siempre que el ciclo físico (componentes que entran, tarjetas que salen) sea rápido.
 
 ## 3.4 Aranceles y relocalización a finales de 2026
 

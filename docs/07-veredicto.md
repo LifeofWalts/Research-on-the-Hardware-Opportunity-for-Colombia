@@ -30,7 +30,9 @@ El momento es bueno por una razón concreta: la IA acaba de bajar la barrera del
   - El trabajo de laboratorio es mano de obra calificada, donde Colombia sí es 5 a 8 veces más barata.
   - El diseño es un servicio: no paga arancel.
 - **De qué depende:** de conseguir los primeros 3 clientes sin historial, y de que el ciclo físico no sea más lento que el de un competidor en EE.UU.
-- **Tamaño realista:** $1M a $3M de ingresos en 3 años con 15 a 40 personas. Rentable, no explosivo.
+- **Contra quién compite:** Diode ya atiende este mismo cliente desde Brooklyn, con autoservicio para lo simple y sus ingenieros para lo complejo desde $10,000 por diseño. Un equipo en Colombia no gana en lo genérico ni en velocidad de entrega. Gana solo si es mejor en un tipo de problema específico o si cobra bastante menos por el mismo resultado.
+- **Cómo cobrar:** por tarjeta funcionando, no por hora. Con IA y bloques reutilizables, el ingreso por ingeniero puede ser 2 a 3 veces el de vender horas (capítulo 6).
+- **Tamaño realista:** $1M a $3M de ingresos en 3 años. Si se cobra por resultado, con 8 a 20 personas en vez de 15 a 40. Rentable, no explosivo.
 
 ### Opción B: hardware para demanda local y andina
 
@@ -75,7 +77,7 @@ Antes de constituir nada. Unas 6 a 8 semanas y menos de US$5k.
 | 1 | Las startups de EE.UU. comprarían tarjetas a un equipo en Colombia | 15 conversaciones con líderes de hardware de startups de robótica e industrial | 3 o más dicen "mándame una propuesta" | Todos exigen proveedor local |
 | 2 | El ciclo físico desde Colombia es tolerable | Pedir componentes de Digi-Key a Colombia, ensamblar una tarjeta real, enviarla a EE.UU. Medir días y costo de cada paso | Menos de 10 días de punta a punta | Más de 3 semanas, o aduana impredecible |
 | 3 | Existe el talento senior | Mapear y hablar con 10 ingenieros de hardware con experiencia de exportación | 3 dispuestos a entrar | No hay, o piden salario de EE.UU. |
-| 4 | La IA multiplica a un equipo pequeño | Diseñar una tarjeta real con las herramientas abiertas de Diode y un modelo actual | Diseño fabricable en días | Requiere tanto retrabajo como hacerlo a mano |
+| 4 | La IA multiplica a un equipo pequeño | Diseñar una tarjeta real con las herramientas abiertas de Diode y un modelo actual. De paso, pedir una cotización en su autoservicio para conocer precio y plazo reales del competidor | Diseño fabricable en días | Requiere tanto retrabajo como hacerlo a mano |
 | 5 | Hay un comprador local con urgencia | 10 conversaciones: integradores industriales, CODALTEC, CIAC, operadores de recaudo, operadores de red | 1 dispuesto a pagar un piloto | Solo interés sin presupuesto |
 
 Los supuestos 1 y 2 son los que deciden. Si fallan, la opción A no existe. Si el 2 falla pero el 1 pasa, la respuesta es separar funciones: diseñar en Colombia y ensamblar cerca del cliente.
@@ -94,11 +96,17 @@ Los supuestos 1 y 2 son los que deciden. Si fallan, la opción A no existe. Si e
 
 ## 7.7 El riesgo de fondo, dicho sin adornos
 
-La tesis de Asnaghi es que el diseño se vuelve fácil y la manufactura se vuelve lo importante. Si tiene razón, el valor se concentra en quien tiene fábrica cerca del cliente. Diode la está construyendo en Brooklyn.
+La tesis de Asnaghi, en sus palabras: "el puente entre el archivo de diseño y la tarjeta en tu mano es donde está el valor duradero". El diseño se vuelve commodity. Lo que vale es tener datos en vivo de qué componentes se consiguen, qué puede fabricar una planta "en el lugar correcto" y a qué costo, y eso solo se controla fabricando y entregando. Diode construye ese puente en Brooklyn.
 
-Colombia no está cerca del cliente de EE.UU. y no tiene cadena de suministro. Por eso la posición defendible desde aquí no es "ser Diode en Colombia". Es una de dos:
+Si tiene razón, hay tres consecuencias para Colombia:
 
-1. Ser el mejor en un nicho técnico donde el conocimiento acumulado importa más que la cercanía (lo que la IA todavía no hace bien).
-2. Ser quien está cerca de un cliente que Diode no va a atender: la industria, el transporte y la defensa de Colombia y la región.
+1. **El puente depende del lugar.** Colombia no está cerca del cliente de EE.UU. y no tiene cadena de suministro. "Ser Diode en Colombia para EE.UU." es competir en desventaja estructural.
+2. **Nadie ha construido ese puente en América Latina.** Si diseñar se vuelve fácil, más empresas de la región van a querer hardware propio y no van a tener quién se lo fabrique rápido. Diode no va a atender a un integrador en Medellín ni a un contratista de defensa en Bogotá. Esa es la versión local de la misma tesis. Su límite es el tamaño de la demanda local, que hoy es pequeña.
+3. **Su propio artículo dice dónde falla la IA:** radiofrecuencia, potencia, alta velocidad, y todo lo que hay que medir en un banco. Ahí el conocimiento acumulado pesa más que la cercanía.
+
+Por eso la posición defendible desde aquí es una de dos:
+
+1. Ser el mejor en un nicho técnico de los que la IA todavía no resuelve.
+2. Ser el puente para un cliente que Diode no va a atender: la industria, el transporte y la defensa de Colombia y la región.
 
 Lo demás es competir en desventaja.

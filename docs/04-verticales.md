@@ -36,7 +36,9 @@ Cada vertical se evalúa contra esas cuatro condiciones.
 
 **Ventas [I]:** ciclos de semanas a 3 meses. Primer contrato de $15k a $80k por una familia de tarjetas. Fidelidad media: las startups rediseñan seguido, pero quien es dueño de varias tarjetas se vuelve difícil de reemplazar.
 
-**Veredicto:** el vertical más accesible con alto crecimiento. Cumple las cuatro condiciones. El riesgo es que es un ciclo de capital de riesgo: si la financiación se enfría, la demanda cae.
+**Veredicto:** el vertical más accesible con alto crecimiento. Cumple las cuatro condiciones. Dos riesgos:
+- Es un ciclo de capital de riesgo. Si la financiación se enfría, la demanda cae.
+- Las tarjetas genéricas se están volviendo commodity. Diode ya publica como diseños abiertos un controlador de motor BLDC y una *carrier board* para Jetson, y ofrece autoservicio con cotización instantánea (capítulo 3). Lo defendible es lo específico de cada robot y lo que la IA aún hace mal: potencia, integración, validación en banco.
 
 ## 4.3 Salud y dispositivos médicos
 

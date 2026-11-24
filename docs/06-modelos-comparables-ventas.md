@@ -35,6 +35,18 @@ Con 15 ingenieros: ~$1M de ingresos, ~$400k a $500k de utilidad bruta y, despué
 - No es un negocio de capital de riesgo por sí solo. Para crecer 10 veces hay que contratar 10 veces más ingenieros, y el talento senior es escaso.
 - La escala real viene de sumar ingreso que no dependa de horas: producción recurrente o producto propio.
 
+**La cuenta cambia si se cobra por resultado y no por hora.** Diode cobra desde $10,000 por diseño y reporta que un solo ingeniero entregó más de 100 diseños en un año [V] ([Diode](https://www.diode.computer/), [Serie A](https://blog.diode.computer/series-a-announcement)). Es su mejor caso y depende de su biblioteca de módulos probados, así que es un techo, no una expectativa. Pero muestra el punto [I]:
+
+| Forma de cobrar | Ingreso por ingeniero al año |
+|---|---|
+| Por hora, sin IA ($50 x 1,400 h) | ~$70k |
+| Por diseño, con IA y bloques reutilizables (20 diseños x $8k) | ~$160k |
+| Techo que reporta Diode (100 diseños x $10k) | ~$1M |
+
+Dos consecuencias:
+1. Cobrar por hora regala al cliente toda la productividad que da la IA. Hay que cobrar por tarjeta funcionando.
+2. El negocio deja de depender de contratar muchos ingenieros. Depende de tener pocos muy buenos y una biblioteca que crece con cada proyecto. Eso alivia la restricción de talento senior en Colombia.
+
 ## 6.3 Comparables: quién lo logró desde un lugar no obvio
 
 **eInfochips (India): de casa de diseño a venta estratégica**

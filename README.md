@@ -14,8 +14,8 @@ Fecha de corte: 24 de noviembre de 2026.
 3. **La máquina no es la barrera.** Una línea de ensamble cuesta $50k a $500k. Las barreras son capital de trabajo, utilización y confianza.
 
 **Cómo está cambiando**
-4. **La IA acaba de cruzar un umbral.** En noviembre de 2026 un modelo diseñó tres dispositivos completos que se fabricaron sin correcciones. El diseño rutinario pierde valor. El valor se mueve a lo físico: fabricar rápido, probar, depurar, certificar.
-5. **Eso corta en dos direcciones.** Vender horas baratas de ingeniería es mala apuesta. Pero un equipo pequeño con estas herramientas ahora produce como uno grande, y el trabajo de laboratorio que la IA no hace es donde el costo colombiano sí ayuda.
+4. **La IA acaba de cruzar un umbral.** En noviembre de 2026 un modelo diseñó tres dispositivos completos que se fabricaron sin correcciones. El diseño rutinario pierde valor. La tesis de Diode: "el puente entre el archivo de diseño y la tarjeta en tu mano es donde está el valor duradero".
+5. **Eso corta en dos direcciones.** Vender horas baratas de ingeniería es mala apuesta. Pero un equipo pequeño con estas herramientas ahora produce como uno grande (Diode reporta más de 100 diseños al año por ingeniero), y el trabajo de laboratorio que la IA no hace es donde el costo colombiano sí ayuda. Hay que cobrar por tarjeta funcionando, no por hora.
 6. **La demanda accesible está en robótica.** Más de $18.8B levantados en 2026, urgencia alta, sin barrera regulatoria a nivel de tarjeta, y faltan ingenieros en EE.UU.
 
 **Colombia**
@@ -46,7 +46,7 @@ Fecha de corte: 24 de noviembre de 2026.
 
 - **Fuentes:** búsqueda web, con cinco líneas de investigación en paralelo. Cada dato lleva su enlace.
 - **Etiquetas:** [V] es un dato que apareció en una fuente. [I] es inferencia, estimación o regla general.
-- **Límite principal:** no se pudieron abrir páginas directamente, solo resultados de búsqueda. Los datos [V] vienen de resúmenes y varios son de blogs de proveedores o reportes de mercado de pago. Sirven para órdenes de magnitud. Antes de usar una cifra en una decisión, hay que abrir la fuente.
-- **Referencias del encargo:** no se pudo leer el artículo de Davide Asnaghi en X ni el sitio de Diode. Su contenido se reconstruyó con fuentes secundarias (capítulo 3).
+- **Referencias del encargo:** leídas de fuente primaria. El sitio de Diode, sus cuatro publicaciones y la investigación de Anthropic. El artículo de Davide Asnaghi se leyó en la versión del blog de Diode (mismo título y fecha que el de X). Ver capítulo 3, secciones 3.1 y 3.2.
+- **Límite principal:** el resto del research se hizo solo con resultados de búsqueda, sin abrir las páginas. Esos datos [V] vienen de resúmenes y varios son de blogs de proveedores o reportes de mercado de pago. Sirven para órdenes de magnitud. Antes de usar una cifra en una decisión, hay que abrir la fuente.
 - **Sin datos reales:** tamaños de contrato y ciclos de venta por vertical son inferencias. No se encontró ningún caso documentado de una startup de EE.UU. comprando diseño de tarjetas a una firma colombiana, fuera de Titoma.
 - **Sin investigar:** tiempos de aduana de la DIAN, tarifas de courier, exención de IVA en exportación de servicios, reglas de origen del TLC, datos recientes de graduados. Lista completa al final del capítulo 5.
